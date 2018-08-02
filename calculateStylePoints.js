@@ -2,10 +2,14 @@
 
 
 const calculateStylePoints = styleNotes => {
-  let stylePointsOrdered = styleNotes.sort(function(a, b) {
-  return a - b;
-  });
-  return stylePointsOrdered[1] + stylePointsOrdered[2] + stylePointsOrdered[3]
+  if (styleNotes.length >= 5) {
+    let stylePointsOrdered = styleNotes.sort(function(a, b) {
+    return a - b;
+    });
+    const [ ,second, third, forth, ] = stylePointsOrdered;
+    return second + third + forth;
+  }
+
 };
 
 module.exports = calculateStylePoints;
